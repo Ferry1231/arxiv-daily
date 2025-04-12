@@ -34,7 +34,7 @@ def load_config(config_file: str) -> Dict:
         logging.info(f"Loaded configuration: {json.dumps(config, indent=2)}")
         return config
 
-def get_authors(authors: List[arxiv.Author], first_author: bool = False) -> str:
+def get_authors(authors, first_author: bool = False) -> str:
     """格式化作者列表"""
     return authors[0].name if first_author else ", ".join(a.name for a in authors)
 
