@@ -56,6 +56,7 @@ def get_code_link(paper_id: str) -> str:
 
 def fetch_papers(query: str, max_results: int) -> Dict:
     """获取指定查询的论文"""
+    client = Client()
     search = arxiv.Search(
         query=query,
         max_results=max_results,
@@ -63,7 +64,7 @@ def fetch_papers(query: str, max_results: int) -> Dict:
     )
     
     papers = {}
-    for result in search.results():
+    for result in client.results(search):
         paper_id = result.get_short_id()
         update_time = result.updated.date()
         
