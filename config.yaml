@@ -51,16 +51,16 @@ show_badge: True
 categories:
   diffusion:
     query: "diffusion model OR generative model"
-    output_dir: "/github/workspace/diffusion"
+    output_dir: "./diffusion"
   agent:
     query: "AI agent OR multi-agent system"
-    output_dir: "/github/workspace/agent"
+    output_dir: "./agent"
   ml_theory:
     query: "deep learning theory OR neural tangent kernel"
-    output_dir: "/github/workspace/ml-theory"
+    output_dir: "./ml-theory"
   stat_ml:
     query: "cat:stat.ML"
-    output_dir: "/github/workspace/stat-ml"
+    output_dir: "./stat-ml"
 
 output_templates:
   json_name: "papers.json"
