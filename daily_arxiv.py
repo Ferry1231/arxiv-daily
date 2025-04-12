@@ -68,6 +68,8 @@ def fetch_papers(query: str, max_results: int) -> Dict:
         # 处理版本号
         clean_id = paper_id.split('v')[0]
         pdf_url = f"{ARXIV_URL}abs/{clean_id}"
+
+        abstract = result.summary.replace("\n", " ")
         
         # 获取代码链接
         code_link = get_code_link(clean_id) or "null"
@@ -75,6 +77,7 @@ def fetch_papers(query: str, max_results: int) -> Dict:
         papers[paper_id] = {
             "title": result.title,
             "authors": get_authors(result.authors),
+            "abstract": abstract,
             "pdf": pdf_url,
             "code": code_link,
             "updated": str(update_time)
