@@ -83,6 +83,8 @@ def fetch_papers(query: str, max_results: int) -> Dict:
             "updated": str(update_time)
         }
     
+    print("paper.len: ", len(papers))
+    
     return papers
 
 def update_category_data(category_config: Dict, global_config: Dict):
