@@ -22,14 +22,14 @@ ARXIV_URL = "http://arxiv.org/"
 GITHUB_API_URL = "https://api.github.com/search/repositories"
 
 def load_config(config_file: str) -> Dict:
-    workspace = os.environ.get('GITHUB_WORKSPACE', os.getcwd())
+    # workspace = os.environ.get('GITHUB_WORKSPACE', os.getcwd())
     """加载并处理配置文件"""
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
         
         # 为每个分类生成完整路径
         for cat in config['categories'].values():
-            cat['output_dir'] = os.path.join(workspace, cat['output_dir'])
+            # cat['output_dir'] = os.path.join(workspace, cat['output_dir'])
             cat['json_path'] = os.path.join(cat['output_dir'], 'papers.json')
             cat['md_path'] = os.path.join(cat['output_dir'], 'README.md')
             
@@ -87,7 +87,7 @@ def fetch_papers(query: str, max_results: int) -> Dict:
     
     print("paper.len: ", len(papers))
     
-    return papers
+    # return papers
 
 def update_category_data(category_config: Dict, global_config: Dict):
     """更新单个分类的数据"""
